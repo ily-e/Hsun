@@ -1,0 +1,52 @@
+create table PARUS.PERSON_NDFL
+(
+  rn         NUMBER(17) not null,
+  person_rn  NUMBER(17) not null,
+  ndfl_month NUMBER(2) not null,
+  ndfl_year  NUMBER(4) not null,
+  summa      NUMBER(17,2) not null,
+  ndfl_code  VARCHAR2(4) not null
+)
+tablespace PARUS
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 7M
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table PARUS.PERSON_NDFL
+  add constraint C_PERSON_NDFL_PK primary key (RN)
+  using index 
+  tablespace PARUS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 3M
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table PARUS.PERSON_NDFL
+  add constraint C_PERSON_NDFL_UK unique (PERSON_RN, NDFL_MONTH, NDFL_YEAR, NDFL_CODE)
+  using index 
+  tablespace PARUS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 10M
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table PARUS.PERSON_NDFL
+  add constraint C_PERSON_NDFL_FK_PERSON foreign key (PERSON_RN)
+  references PARUS.PERSON (RN) on delete cascade;
+

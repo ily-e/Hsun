@@ -1,0 +1,17 @@
+create table PARUS.TEMP_I
+(
+  i   VARCHAR2(200),
+  sex NUMBER(1)
+)
+tablespace PARUS
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

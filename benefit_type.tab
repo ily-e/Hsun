@@ -1,0 +1,54 @@
+create table PARUS.BENEFIT_TYPE
+(
+  rn           NUMBER(17) not null,
+  benefit_name VARCHAR2(200),
+  level_b      NUMBER(17) default 1,
+  region       NUMBER(17),
+  period_      NUMBER(17) default 1
+)
+tablespace PARUS
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table PARUS.BENEFIT_TYPE
+  add constraint BENEFIT_TYPE_PK primary key (RN)
+  using index 
+  tablespace PARUS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table PARUS.BENEFIT_TYPE
+  add constraint BENEFIT_TYPE_UK unique (BENEFIT_NAME)
+  using index 
+  tablespace PARUS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table PARUS.BENEFIT_TYPE
+  add constraint BENEFIT_TYPE_FK foreign key (REGION)
+  references PARUS.GEOGRAFY (RN);
+alter table PARUS.BENEFIT_TYPE
+  add constraint BENEFIT_TYPE_PERIOD
+  check (PERIOD_ in (1,2));
+

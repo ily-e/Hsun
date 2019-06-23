@@ -1,0 +1,38 @@
+create table PARUS.BENEFIT_SUM
+(
+  rn     NUMBER(17) not null,
+  rn_b   NUMBER(17),
+  sum_b  NUMBER(15,2),
+  date_f DATE,
+  date_t DATE,
+  num_bs NUMBER(17)
+)
+tablespace PARUS
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table PARUS.BENEFIT_SUM
+  add constraint BENEFIT_SUM_PK primary key (RN)
+  using index 
+  tablespace PARUS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table PARUS.BENEFIT_SUM
+  add constraint BENEFIT_SUM_FK foreign key (RN_B)
+  references PARUS.BENEFIT_TYPE (RN);
+

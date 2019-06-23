@@ -1,0 +1,31 @@
+create table PARUS.LEVEL_BENEFIT
+(
+  rn         NUMBER(17) not null,
+  name_level VARCHAR2(200)
+)
+tablespace PARUS
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table PARUS.LEVEL_BENEFIT
+  add constraint LEVEL_BENEFIT_PK primary key (RN)
+  using index 
+  tablespace PARUS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

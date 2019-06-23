@@ -1,0 +1,60 @@
+create table PARUS.TAG_LIST
+(
+  rn   NUMBER(17) not null,
+  code VARCHAR2(80),
+  note VARCHAR2(2000)
+)
+tablespace PARUS
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table PARUS.TAG_LIST
+  add constraint C_TAG_LIST_PK primary key (RN)
+  using index 
+  tablespace PARUS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table PARUS.TAG_LIST
+  add constraint C_TAG_LIST_UK_CODE unique (CODE)
+  using index 
+  tablespace PARUS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table PARUS.TAG_LIST
+  add constraint C_TAG_LIST_UK_NAME unique (NOTE)
+  using index 
+  tablespace PARUS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

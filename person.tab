@@ -1,0 +1,79 @@
+create table PARUS.PERSON
+(
+  rn      NUMBER(17) not null,
+  agn_f   VARCHAR2(80) not null,
+  agn_i   VARCHAR2(80) not null,
+  agn_o   VARCHAR2(80),
+  agnburn DATE not null,
+  snils   NUMBER(11) not null,
+  inn     NUMBER(12) not null,
+  sex     NUMBER(1) not null
+)
+tablespace PARUS
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 768K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on column PARUS.PERSON.agn_f
+  is 'Фамилия';
+comment on column PARUS.PERSON.agn_i
+  is 'Имя';
+comment on column PARUS.PERSON.agn_o
+  is 'Отчество';
+comment on column PARUS.PERSON.agnburn
+  is 'Дата рождения';
+comment on column PARUS.PERSON.snils
+  is 'СНИЛС';
+comment on column PARUS.PERSON.inn
+  is 'ИНН';
+comment on column PARUS.PERSON.sex
+  is '0 Женж; 1 Муж';
+alter table PARUS.PERSON
+  add constraint C_PERSON_PK primary key (RN)
+  using index 
+  tablespace PARUS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 192K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table PARUS.PERSON
+  add constraint C_PERSON_UK_INN unique (INN)
+  using index 
+  tablespace PARUS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 320K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table PARUS.PERSON
+  add constraint C_PERSON_UK_SNILS unique (SNILS)
+  using index 
+  tablespace PARUS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 320K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

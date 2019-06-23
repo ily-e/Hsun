@@ -1,0 +1,45 @@
+create table PARUS.BENEFIT_SUM_CONDITIONS
+(
+  rn             NUMBER(17) not null,
+  rn_benefit_sum NUMBER(17),
+  rn_tag         NUMBER(17),
+  cond_date      DATE,
+  cond_numb      NUMBER(15,2),
+  cond_str       VARCHAR2(200),
+  cond_sign      VARCHAR2(2)
+)
+tablespace PARUS
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table PARUS.BENEFIT_SUM_CONDITIONS
+  add constraint BENEFIT_SUM_CONDITIONS_PK primary key (RN)
+  using index 
+  tablespace PARUS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table PARUS.BENEFIT_SUM_CONDITIONS
+  add constraint BENEFIT_SUM_CONDITIONS_FK foreign key (RN_BENEFIT_SUM)
+  references PARUS.BENEFIT_SUM (RN) on delete cascade;
+alter table PARUS.BENEFIT_SUM_CONDITIONS
+  add constraint BENEFIT_SUM_CONDITIONS_T foreign key (RN_TAG)
+  references PARUS.TAG_LIST (RN);
+alter table PARUS.BENEFIT_SUM_CONDITIONS
+  add constraint BENEFIT_SUM_CONDITIONS_CH
+  check (COND_SIGN in ('>','<','=','>=','<='));
+

@@ -1,0 +1,44 @@
+create table PARUS.PERSON_DOCUMENT
+(
+  rn        NUMBER(17) not null,
+  person_id NUMBER(17),
+  seria     VARCHAR2(50),
+  numb      VARCHAR2(50),
+  date_doc  DATE not null,
+  date_from DATE,
+  date_to   DATE,
+  doc_type  NUMBER(17) not null,
+  factdoc   NUMBER(1) default 1 not null
+)
+tablespace PARUS
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table PARUS.PERSON_DOCUMENT
+  add constraint C_PERSON_DOCUMENT_PK primary key (RN)
+  using index 
+  tablespace PARUS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table PARUS.PERSON_DOCUMENT
+  add constraint C_PERSON_DOCUMENT_FK_DOCTYPE foreign key (DOC_TYPE)
+  references PARUS.DOCUMENT_TYPE (RN);
+alter table PARUS.PERSON_DOCUMENT
+  add constraint C_PERSON_DOCUMENT_FK_PERSON foreign key (PERSON_ID)
+  references PARUS.PERSON (RN);
+

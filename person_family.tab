@@ -1,0 +1,56 @@
+create table PARUS.PERSON_FAMILY
+(
+  rn            NUMBER(17) not null,
+  first_person  NUMBER(17) not null,
+  second_person NUMBER(17) not null,
+  family_type   NUMBER(17) not null
+)
+tablespace PARUS
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table PARUS.PERSON_FAMILY
+  add constraint C_PERSON_FAMILY_PK primary key (RN)
+  using index 
+  tablespace PARUS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table PARUS.PERSON_FAMILY
+  add constraint C_PERSON_FAMILY_UK unique (FIRST_PERSON, SECOND_PERSON)
+  using index 
+  tablespace PARUS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table PARUS.PERSON_FAMILY
+  add constraint C_PERSON_FAMILY_FK_FPERSON foreign key (FIRST_PERSON)
+  references PARUS.PERSON (RN);
+alter table PARUS.PERSON_FAMILY
+  add constraint C_PERSON_FAMILY_FK_FTYPE foreign key (FAMILY_TYPE)
+  references PARUS.FAMILY_TYPE (RN);
+alter table PARUS.PERSON_FAMILY
+  add constraint C_PERSON_FAMILY_FK_SPERSON foreign key (SECOND_PERSON)
+  references PARUS.PERSON (RN);
+

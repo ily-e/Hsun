@@ -1,0 +1,8 @@
+create sequence PARUS.H_ID
+minvalue 1
+maxvalue 999999999999999
+start with 806656
+increment by 1
+cache 5
+order;
+

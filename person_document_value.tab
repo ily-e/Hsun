@@ -1,0 +1,55 @@
+create table PARUS.PERSON_DOCUMENT_VALUE
+(
+  rn        NUMBER(17) not null,
+  prn       NUMBER(17) not null,
+  tag_id    NUMBER(17) not null,
+  value_num NUMBER(17,5),
+  value_str VARCHAR2(4000),
+  value_dat DATE
+)
+tablespace PARUS
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table PARUS.PERSON_DOCUMENT_VALUE
+  add constraint C_PERSON_DOCUMENT_VALUE_PK primary key (RN)
+  using index 
+  tablespace PARUS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table PARUS.PERSON_DOCUMENT_VALUE
+  add constraint C_PERSON_DOCUMENT_VALUE_UK unique (PRN, TAG_ID)
+  using index 
+  tablespace PARUS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table PARUS.PERSON_DOCUMENT_VALUE
+  add constraint C_PERSON_DOCUMENT_VALUE_FK foreign key (PRN)
+  references PARUS.PERSON_DOCUMENT (RN);
+alter table PARUS.PERSON_DOCUMENT_VALUE
+  add constraint C_PERSON_DOCUMENT_VALUE_FK_TAG foreign key (TAG_ID)
+  references PARUS.TAG_LIST (RN);
+

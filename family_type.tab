@@ -1,0 +1,60 @@
+create table PARUS.FAMILY_TYPE
+(
+  rn    NUMBER(17) not null,
+  code  VARCHAR2(20) not null,
+  rcode VARCHAR2(20) not null
+)
+tablespace PARUS
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table PARUS.FAMILY_TYPE
+  add constraint C_FAMILY_TYPE_PK primary key (RN)
+  using index 
+  tablespace PARUS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table PARUS.FAMILY_TYPE
+  add constraint C_FAMILY_TYPE_UK_CODE unique (CODE)
+  using index 
+  tablespace PARUS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table PARUS.FAMILY_TYPE
+  add constraint C_FAMILY_TYPE_UK_RCODE unique (RCODE)
+  using index 
+  tablespace PARUS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+
