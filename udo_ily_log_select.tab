@@ -1,0 +1,34 @@
+create table PARUS.UDO_ILY_LOG_SELECT
+(
+  rn     NUMBER(17) not null,
+  auth   VARCHAR2(30) not null,
+  tstamp DATE not null,
+  str    VARCHAR2(240) not null
+)
+tablespace PARUS
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table PARUS.UDO_ILY_LOG_SELECT
+  add constraint C_UDO_ILY_LOG_SELECT_PK primary key (RN)
+  using index 
+  tablespace PARUS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+grant select on PARUS.UDO_ILY_LOG_SELECT to PUBLIC;
+

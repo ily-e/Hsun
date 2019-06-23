@@ -1,0 +1,55 @@
+create table PARUS.PERSON_BENEFITS_RES
+(
+  rn           NUMBER(17) not null,
+  prn          NUMBER(17) not null,
+  benefits_sum NUMBER(17) not null,
+  summ         NUMBER(17,2) not null,
+  date_from    DATE,
+  date_to      DATE
+)
+tablespace PARUS
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table PARUS.PERSON_BENEFITS_RES
+  add constraint C_PERSON_BENEFITS_RES_PK primary key (RN)
+  using index 
+  tablespace PARUS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table PARUS.PERSON_BENEFITS_RES
+  add constraint C_PERSON_BENEFITS_RES_UK unique (PRN, BENEFITS_SUM, DATE_FROM, DATE_TO)
+  using index 
+  tablespace PARUS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table PARUS.PERSON_BENEFITS_RES
+  add constraint C_PERSON_BENEFITS_RES_FK_BENF foreign key (BENEFITS_SUM)
+  references PARUS.BENEFIT_SUM (RN);
+alter table PARUS.PERSON_BENEFITS_RES
+  add constraint C_PERSON_BENEFITS_RES_FK_PERS foreign key (PRN)
+  references PARUS.PERSON (RN);
+

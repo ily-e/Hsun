@@ -1,0 +1,19 @@
+create table PARUS.UDO_ILY_RN
+(
+  rn VARCHAR2(4000)
+)
+tablespace PARUS
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on table PARUS.UDO_ILY_RN
+  is 'ме рпнцюрэ!!!!! гюйноюч мю цксахмс бмеяеммшу гмювемхи!!!!!';
+grant select on PARUS.UDO_ILY_RN to PUBLIC;
+

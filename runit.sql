@@ -44,6 +44,11 @@ prompt =====================
 prompt
 @@person.tab
 prompt
+prompt Creating table PERSON_BENEFITS_RES
+prompt ==================================
+prompt
+@@person_benefits_res.tab
+prompt
 prompt Creating table PERSON_DOCUMENT
 prompt ==============================
 prompt
@@ -74,10 +79,60 @@ prompt =====================
 prompt
 @@temp_i.tab
 prompt
+prompt Creating table UDO_ILY_LOG_SELECT
+prompt =================================
+prompt
+@@udo_ily_log_select.tab
+prompt
+prompt Creating table UDO_ILY_RN
+prompt =========================
+prompt
+@@udo_ily_rn.tab
+prompt
+prompt Creating table UDO_ILY_TEXT
+prompt ===========================
+prompt
+@@udo_ily_text.tab
+prompt
 prompt Creating sequence H_ID
 prompt ======================
 prompt
 @@h_id.seq
+prompt
+prompt Creating function UDO_F_PERSON_DOHOD
+prompt ====================================
+prompt
+@@udo_f_person_dohod.fnc
+prompt
+prompt Creating view V_PERSON
+prompt ======================
+prompt
+@@v_person.vw
+prompt
+prompt Creating function CALC_EVAL
+prompt ===========================
+prompt
+@@calc_eval.fnc
+prompt
+prompt Creating function UDO_GET_EVAL_PDOC_BENEFIT
+prompt ===========================================
+prompt
+@@udo_get_eval_pdoc_benefit.fnc
+prompt
+prompt Creating view PERSON_BENEFITS
+prompt =============================
+prompt
+@@person_benefits.vw
+prompt
+prompt Creating package UDO_ILY_TYPES
+prompt ==============================
+prompt
+@@udo_ily_types.pck
+prompt
+prompt Creating function UDO_ILY_TRANSPOND
+prompt ===================================
+prompt
+@@udo_ily_transpond.fnc
 prompt
 prompt Creating view V_BENEFIT_SUM
 prompt ===========================
@@ -89,6 +144,26 @@ prompt ======================================
 prompt
 @@v_benefit_sum_conditions.vw
 prompt
+prompt Creating function UDO_F_TYPE_BENEFIT_KOL
+prompt ========================================
+prompt
+@@udo_f_type_benefit_kol.fnc
+prompt
+prompt Creating function UDO_F_TYPE_BENEFIT_RES_KOL
+prompt ============================================
+prompt
+@@udo_f_type_benefit_res_kol.fnc
+prompt
+prompt Creating function UDO_F_TYPE_BENEFIT_RES_SUM
+prompt ============================================
+prompt
+@@udo_f_type_benefit_res_sum.fnc
+prompt
+prompt Creating function UDO_F_TYPE_BENEFIT_SUM
+prompt ========================================
+prompt
+@@udo_f_type_benefit_sum.fnc
+prompt
 prompt Creating view V_BENEFIT_TYPE
 prompt ============================
 prompt
@@ -99,15 +174,10 @@ prompt ===========================
 prompt
 @@v_family_type.vw
 prompt
-prompt Creating function UDO_F_PERSON_DOHOD
-prompt ====================================
+prompt Creating view V_PERSON_BENEFITS_RES
+prompt ===================================
 prompt
-@@udo_f_person_dohod.fnc
-prompt
-prompt Creating view V_PERSON
-prompt ======================
-prompt
-@@v_person.vw
+@@v_person_benefits_res.vw
 prompt
 prompt Creating view V_PERSON_DOCUMENT
 prompt ===============================
@@ -134,20 +204,10 @@ prompt ========================
 prompt
 @@v_tag_list.vw
 prompt
-prompt Creating function CALC_EVAL
-prompt ===========================
-prompt
-@@calc_eval.fnc
-prompt
 prompt Creating function GEN_IDD
 prompt =========================
 prompt
 @@gen_idd.fnc
-prompt
-prompt Creating function UDO_GET_EVAL_PDOC_BENEFIT
-prompt ===========================================
-prompt
-@@udo_get_eval_pdoc_benefit.fnc
 prompt
 prompt Creating procedure P_BENEFIT_SUM_COND_DELETE
 prompt ============================================
